@@ -120,21 +120,40 @@ class RestaurantTableViewController: UITableViewController {
             
             let defaultText = "Just checking in at " + self.restaurantNames[indexPath.row]
             
-            let activityController =  UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
+            //let activityController =  UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
+            
+            let activityController: UIActivityViewController
+            
+            if let imageToShare = UIImage(named: self.restaurantImages[indexPath.row]) {
+                activityController = UIActivityViewController(activityItems: [defaultText, imageToShare], applicationActivities: nil)
+            } else {
+                activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
+            }
+            
+            //PopoverView Controller For The iPad
+            if let popoverController = activityController.popoverPresentationController {
+                if let cell = tableView.cellForRow(at: indexPath) {
+                    popoverController.sourceView = cell
+                    popoverController.sourceRect = cell.bounds
+                }
+            }
             
             self.present(activityController, animated: true, completion: nil)
             completionHandle(true)
             
         }
         
+        deleteAction.backgroundColor = UIColor(red: 231.0/255.0, green: 76.0/255.0, blue: 60.0/255.0, alpha: 1.0)
+        deleteAction.image = UIImage(named: "delete")
+        
+        shareAction.backgroundColor = UIColor(red: 254.0/255.0, green: 149.0/255.0, blue: 38.0/255.0, alpha: 1.0)
+        shareAction.image = UIImage(named: "share")
+        
+        
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction,  shareAction])
         
         return swipeConfiguration
-        
-        
-        
-        
-        
+
     }
     
     
