@@ -100,6 +100,66 @@ class RestaurantTableViewController: UITableViewController {
         
     }
     
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, sourceView, completionHandler) in
+            
+                        self.restaurantNames.remove(at: indexPath.row)
+                        self.restaurantLocations.remove(at: indexPath.row)
+                        self.restaurantImages.remove(at: indexPath.row)
+                        self.restaurantTypes.remove(at: indexPath.row)
+                        self.restaurantVisited.remove(at: indexPath.row)
+            
+                        tableView.deleteRows(at: [indexPath], with: .fade)
+            
+                        completionHandler(true)
+        }
+        
+        
+        let shareAction = UIContextualAction(style: .normal, title: "Share") { (action, sourceView, completionHandle) in
+            
+            let defaultText = "Just checking in at " + self.restaurantNames[indexPath.row]
+            
+            let activityController =  UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
+            
+            self.present(activityController, animated: true, completion: nil)
+            completionHandle(true)
+            
+        }
+        
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction,  shareAction])
+        
+        return swipeConfiguration
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    //Deletion Of The Cell
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//
+//        if editingStyle == .delete {
+//            restaurantNames.remove(at: indexPath.row)
+//            restaurantLocations.remove(at: indexPath.row)
+//            restaurantImages.remove(at: indexPath.row)
+//            restaurantTypes.remove(at: indexPath.row)
+//            restaurantVisited.remove(at: indexPath.row)
+//                }
+//
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//
+//        print("\(restaurantNames.count)")
+//            for name in restaurantNames {
+//                print(name)
+//            }
+//    }
+    
     
 
 }
