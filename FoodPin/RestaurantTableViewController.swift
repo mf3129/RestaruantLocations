@@ -90,6 +90,7 @@ class RestaurantTableViewController: UITableViewController {
             let cell = tableView.cellForRow(at: indexPath) as! RestaurantTableViewCell
             self.restaurantVisited[indexPath.row] = (self.restaurantVisited[indexPath.row]) ? false : true
             
+            cell.heartImageView.isHidden = self.restaurantVisited[indexPath.row] ? false : true
             })
         
         optionMenu.addAction(checkInAction)
@@ -137,11 +138,12 @@ class RestaurantTableViewController: UITableViewController {
                     popoverController.sourceRect = cell.bounds
                 }
             }
-            
+             
             self.present(activityController, animated: true, completion: nil)
             completionHandle(true)
             
         }
+        
         
         deleteAction.backgroundColor = UIColor(red: 231.0/255.0, green: 76.0/255.0, blue: 60.0/255.0, alpha: 1.0)
         deleteAction.image = UIImage(named: "delete")
@@ -157,6 +159,35 @@ class RestaurantTableViewController: UITableViewController {
     }
     
     
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+
+        let cell = tableView.cellForRow(at: indexPath) as! RestaurantTableViewCell
+        
+        let checkInAction = UIContextualAction(style: .normal, title: "Check In") { (action, sourceView, completionHandle) in
+    
+            self.restaurantVisited[indexPath.row] = (self.restaurantVisited[indexPath.row]) ? false : true
+            
+            cell.heartImageView.isHidden = self.restaurantVisited[indexPath.row] ? false : true
+            
+        }
+    
+        if cell.heartImageView.isHidden == false {
+            checkInAction.image = UIImage(named: "undo")
+            cell.heartImageView.isHidden = true
+        } else {
+            checkInAction.image = UIImage(named: "tick")
+        }
+        
+        checkInAction.backgroundColor = UIColor.blue
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [checkInAction])
+        return swipeConfiguration
+        
+        }
+ 
+        
+
+       
+    }
     
     
     
@@ -181,4 +212,4 @@ class RestaurantTableViewController: UITableViewController {
     
     
 
-}
+
