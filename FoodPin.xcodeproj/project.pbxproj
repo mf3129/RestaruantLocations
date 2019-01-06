@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8F02D7621E133AC002F54D9 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F02D7521E133AC002F54D9 /* RestaurantDetailViewController.swift */; };
+		A8F02D7821E1759F002F54D9 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F02D7721E1759E002F54D9 /* Restaurant.swift */; };
 		F44705AE211AF99E002E0327 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44705AD211AF99E002E0327 /* AppDelegate.swift */; };
 		F44705B3211AF99E002E0327 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F44705B1211AF99E002E0327 /* Main.storyboard */; };
 		F44705B5211AF99F002E0327 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F44705B4211AF99F002E0327 /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A8F02D7521E133AC002F54D9 /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
+		A8F02D7721E1759E002F54D9 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		F44705AA211AF99E002E0327 /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44705AD211AF99E002E0327 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F44705B2211AF99E002E0327 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -37,10 +41,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A8F02D7921E189C0002F54D9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A8F02D7721E1759E002F54D9 /* Restaurant.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A8F02D7A21E18A00002F54D9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F44705BF211AFFE1002E0327 /* RestaurantTableViewController.swift */,
+				A8F02D7521E133AC002F54D9 /* RestaurantDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A8F02D7B21E18A65002F54D9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F463DF77211D35A600F73F88 /* RestaurantTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F44705A1211AF99D002E0327 = {
 			isa = PBXGroup;
 			children = (
 				F44705AC211AF99E002E0327 /* FoodPin */,
+				F44705B9211AF99F002E0327 /* Info.plist */,
+				F44705B4211AF99F002E0327 /* Assets.xcassets */,
 				F44705AB211AF99E002E0327 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,11 +89,10 @@
 			children = (
 				F44705AD211AF99E002E0327 /* AppDelegate.swift */,
 				F44705B1211AF99E002E0327 /* Main.storyboard */,
-				F44705B4211AF99F002E0327 /* Assets.xcassets */,
 				F44705B6211AF99F002E0327 /* LaunchScreen.storyboard */,
-				F44705B9211AF99F002E0327 /* Info.plist */,
-				F44705BF211AFFE1002E0327 /* RestaurantTableViewController.swift */,
-				F463DF77211D35A600F73F88 /* RestaurantTableViewCell.swift */,
+				A8F02D7921E189C0002F54D9 /* Model */,
+				A8F02D7B21E18A65002F54D9 /* View */,
+				A8F02D7A21E18A00002F54D9 /* Controller */,
 			);
 			path = FoodPin;
 			sourceTree = "<group>";
@@ -138,8 +168,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8F02D7821E1759F002F54D9 /* Restaurant.swift in Sources */,
 				F44705C0211AFFE1002E0327 /* RestaurantTableViewController.swift in Sources */,
 				F463DF78211D35A600F73F88 /* RestaurantTableViewCell.swift in Sources */,
+				A8F02D7621E133AC002F54D9 /* RestaurantDetailViewController.swift in Sources */,
 				F44705AE211AF99E002E0327 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
