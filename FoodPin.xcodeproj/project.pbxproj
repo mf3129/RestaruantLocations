@@ -70,7 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				F44705AC211AF99E002E0327 /* FoodPin */,
-				F44705B9211AF99F002E0327 /* Info.plist */,
 				F44705B4211AF99F002E0327 /* Assets.xcassets */,
 				F44705AB211AF99E002E0327 /* Products */,
 			);
@@ -93,6 +92,7 @@
 				A8F02D7921E189C0002F54D9 /* Model */,
 				A8F02D7B21E18A65002F54D9 /* View */,
 				A8F02D7A21E18A00002F54D9 /* Controller */,
+				F44705B9211AF99F002E0327 /* Info.plist */,
 			);
 			path = FoodPin;
 			sourceTree = "<group>";
